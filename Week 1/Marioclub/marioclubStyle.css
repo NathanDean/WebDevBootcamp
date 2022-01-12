@@ -1,7 +1,12 @@
-body {
+* {
   margin: 0;
   padding: 0;
   font-family: "Be Vietnam Pro", sans-serif;
+}
+
+body {
+  position: absolute;
+  top: -20px;
 }
 
 a {
@@ -31,6 +36,7 @@ h1 {
 
 h2 {
   color: red;
+  margin-bottom: 15px;
 }
 
 header {
@@ -41,19 +47,25 @@ header {
   height: 60px;
   justify-content: center;
   position: fixed;
-  text-align: center;
   width: 100%;
   z-index: 100;
 }
 
 hr {
+  margin: 0 auto;
   width: 90%;
 }
 
 input {
   border: 0;
-  border-radius: 5%;
+  border-radius: 50px;
   height: 30px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+input::placeholder {
+  color: lightgrey;
 }
 
 nav {
@@ -64,20 +76,16 @@ nav {
   justify-content: space-around;
   position: sticky;
   text-align: center;
+  top: 60px;
   width: 100%;
-}
-
-ul {
-  display: flex;
-  justify-content: space-around;
-  padding: 5%;
 }
 
 .badge {
   border: 3px solid white;
-  border-radius: 5%;
+  border-radius: 50px;
   font-size: 1.5rem;
-  padding: 4px;
+  font-weight: bold;
+  padding: 6px;
   text-align: center;
 }
 
@@ -91,8 +99,18 @@ ul {
   align-items: stretch;
 }
 
+.images {
+    display: flex;
+    justify-content: space-around;
+    padding: 5%;
+}
+
 .text {
   padding: 5%;
+}
+
+.text p::first-line {
+  font-weight: bold;
 }
 
 #join {
@@ -107,7 +125,7 @@ ul {
 
 #top {
   background-image: url("Images/banner.png");
-  background-size: 100%;
+  background-size: contain;
   height: 325px;
   margin-top: 60px;
   position:relative;

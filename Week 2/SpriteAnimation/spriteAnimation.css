@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("background/evergreenTerrace.png");
+    background-size: cover;
+    
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#character {
+    background: url("spriteSheet/homer2.png") no-repeat;
+    background-size: 780%;
+
+    height: 280px;
+    width: 200px;
+
+    position: absolute;
+    bottom: 110px;
+
+    animation: walking 1000ms steps(7) infinite, moveForward 5000ms linear infinite;
+}
+
+@keyframes walking {
+    0% {
+        background-position: 1.5%;
+    }
+    100% {
+        background-position: 103.5%;
+    }
+}
+
+@keyframes moveForward {
+    0% {
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}

@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.back {
+    background: url(images/santa1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.fore {
+    background: url(images/paper.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+
+    mix-blend-mode:lighten;
+    filter: brightness(1.5);
+}

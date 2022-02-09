@@ -6,3 +6,5 @@ btn.addEventListener('click', () => {
     btn.classList.toggle('active');
     nav.classList.toggle('active');
 });
+
+console.log(myName.length);

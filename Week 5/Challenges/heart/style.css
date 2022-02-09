@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Imperial Script', cursive;
+    font-size: 3rem;
+}
+
+.container {
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    width: 30px;
+    height: 30px;
+
+    background: url("https://www.svgrepo.com/show/9106/heart.svg");
+    background-size: cover;
+
+    position: absolute;
+
+    animation-name: heart;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes heart {
+    from {
+        top: 0vh;
+    }
+    to {
+        top: 100vh
+    }
+}

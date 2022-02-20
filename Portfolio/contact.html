@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nathan Dean - Creative Web Developer</title>
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+</head>
+
+<body>
+
+    <nav class="flex full">
+
+        <span class="flex center alignCenter half header">
+
+            <a href="index.html" class="header">NATHAN DEAN</a>
+            
+        </span>
+
+        <div class="flex around alignCenter half">
+
+            <span class="flex center alignCenter full fullHeight">
+
+                <a href="about.html">about</a>
+
+            </span>
+
+            <span class="flex center alignCenter full fullHeight">
+
+                <a href="work.html">work</a>
+
+            </span>
+
+            <span id="currentPage" class="flex center alignCenter full fullHeight">
+
+                <h3>contact</h3>
+
+            </span>
+
+        </div>
+
+    </nav>
+
+    <main class="full">
+
+        <section class="full">
+
+                <div id="contactList" class="absolute landscape ocean">
+
+                    <div class="flex center alignCenter wrap full fullHeight textPadding">
+
+                        <span class="fullRow">
+        
+                            <a href="https://github.com/NathanDean" class="whiteText">github</a>
+        
+                        </span>
+        
+                        <span class="fullRow">
+        
+                            <a href="https://www.linkedin.com/in/nathanjdean/" class="whiteText">linkedin</a>
+        
+                        </span>
+        
+                        <span class="fullRow">
+        
+                            <h3 id="emailLink" class="whiteText">email</h3>
+        
+                        </span>
+                        
+                    </div>
+
+                </div>
+
+                <div id="formDiv" class="none absolute blueBorder">
+
+                    <form id="messageForm" class="flex start alignStart wrap fullHeight formPadding" action="" novalidate>
+    
+                        <label for="email" class="fullRow">email address</label>
+    
+                        <input type="email" name="email" class="sixtyRow blueBorder">
+    
+                        <label for="message" class="fullRow">message</label>
+    
+                        <textarea id="message" class="fullRow blueBorder" name="message" form="messageForm"></textarea>
+    
+                        <button type="submit" class="blueBorder">send</button>
+    
+                    </form>
+    
+                </div>
+
+        </section>
+
+    </main>
+
+    <script src="scripts/contact.js"></script>
+
+</body>
+
+</html>

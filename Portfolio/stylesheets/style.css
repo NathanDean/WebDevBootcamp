@@ -1,0 +1,635 @@
+/* Contents */
+
+/* Import font
+
+Universal reset
+
+Whole page
+
+Home
+
+    Home menu
+
+Nav
+
+Gallery
+
+Contact
+
+Reusable classes
+
+    Diplay and Flexbox
+
+    Sizing
+
+    Margin, Padding and Border
+
+    Background
+
+    Text
+
+Media queries */
+
+
+/* Import font */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400&display=swap');
+
+
+/* Universal reset */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+/* Cross site */
+
+    body {
+        width: 100vw;
+        height: 100vh;
+
+        background: #FAFAFF;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    body, a, h1, h3, h4, label, input, textarea, button {
+        color: #30343F;
+    }
+
+    body, a, h1, h3, h4, label, button {
+        font-weight: 400;
+    }
+
+    body, input, textarea, button {
+        font-family: 'Outfit', sans-serif;
+    }
+
+    body, button {
+        letter-spacing: .3rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a, h3, label {      
+        font-size: 2rem;
+    }
+
+    a, h3 {
+        padding-left: .3rem;
+    }
+
+    a:hover, .ocean h3:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+    }
+
+    nav a:hover {
+        text-decoration: none;
+    }
+
+    h1, .header {
+        font-size: 4rem;
+    }
+
+    main {
+        display: flex;
+
+        height: 90vh;
+    }
+
+/* Home */
+                
+    #title, #menu, #explore, #goHome {
+        transition: opacity 900ms;
+    }
+    
+    #menu span {
+        margin: 2rem 0;
+    }
+
+/* Nav menu */
+
+    nav {
+        height: 10vh;
+    }
+
+    nav div span {    
+        border-bottom: 0px solid #47A8BD;
+
+        transition: 180ms;
+    }
+
+    nav div span:hover {
+        border-bottom: 6px solid #A1D1De;
+    }
+
+    #currentPage {
+        border-bottom: 6px solid #47A8BD;
+    }
+
+    #currentPage:hover {
+        border-bottom: 0px solid #47A8BD;
+    }
+
+/* Gallery */
+
+    .gallery {    
+        width: 85vw;
+        max-height: 75vh;
+    }
+
+    /* Webkit scrollbar styling for gallery */
+
+    .gallery::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb{
+        background-color: #47A8BD;
+    }
+
+    .gallery::-webkit-scrollbar-track{
+        background-color: #FAFAFF;
+    }
+
+    /* Gallery items */
+
+        .gallerySquare{
+            width: 20.5vw;
+            height: 20.5vw;
+        }
+
+        .galleryItem {
+            margin-bottom: 0.5vw;
+
+            background-position: center;
+            background-size: cover;
+
+            transition: transform 650ms;
+        }
+
+        .galleryItem:hover {  
+            transform: scale(1.125);
+            z-index: 1;
+        }
+
+        /* Adds margin to top row of gallery items */
+
+        .galleryItem:nth-of-type(n+1):nth-of-type(-n+4) {
+                margin-top: 0.5vw;
+            }
+
+        /* Sets transform origin for gallery items depending on their position in the gallery */
+
+        .galleryItem:nth-of-type(4n-3) {
+                transform-origin: left;
+            }
+
+        .galleryItem:nth-of-type(4n) {
+            transform-origin: right;
+        }
+
+        .galleryItem:nth-of-type(1) {
+            transform-origin: top left;
+        }
+
+        .galleryItem:nth-of-type(n+2):nth-of-type(-n+3) {
+            transform-origin: top;
+        }
+
+        .galleryItem:nth-of-type(4) {
+            transform-origin: top right;
+        }
+
+        /* Overrides rules above for bottom row */
+
+        section.full .gallery .bottomLeft {
+            transform-origin: bottom left;
+        }
+
+        section.full .gallery .bottom {
+            transform-origin: bottom;
+        }
+
+        section.full .gallery .bottomRight {
+            transform-origin: bottom right;
+        }
+
+        /* Gallery item content */
+
+            .galleryItem * {
+                margin: .4vw 0;
+
+                opacity: 0;
+
+                transition: 650ms;
+            }
+
+            .galleryItem:hover *{
+                opacity: 1;
+            }
+
+/* Contact */
+
+    /* Styling for div with links */
+
+    #contactList {
+        display: inline-block;
+
+        top: 13rem;
+        left: 30vw;
+
+        transition: background-position 1000ms, 
+                    left 1750ms,
+                    width 1750ms;
+
+        z-index: 1;
+    }
+    
+    #contactList:hover {
+        background-position: -1vw 0;
+    }
+
+    /* Moves div to the left when form is displaying */
+
+    #contactList.formActive {
+        left: 7.5vw;
+
+        width: 30vw;
+    }
+
+    #contactList.formActive:hover {
+        background-position: -.75vw 0;
+    }
+
+    /* Styling for contact form */
+
+    #formDiv {
+        top: 13rem;
+        right: 7.5vw;
+        
+        width: 50vw;
+        height: 30vw;
+        
+        opacity: 0;
+
+        transition: opacity 600ms;
+
+        z-index: 0;
+    }
+
+    /* Makes form visible when activated */
+
+    #formDiv.active {
+        display: inline-block;
+    }
+
+    #formDiv.show {
+        opacity: 1;
+    }
+
+    textarea {
+        height: 40%;
+
+        resize: none;
+    }
+
+    label, input, textarea {
+        margin-bottom: .3rem;
+    }
+
+    input, textarea {
+        padding: 0 .5rem;
+
+        letter-spacing: .1rem;
+        line-height: 2rem;
+        
+        transition: 200ms;
+    }
+
+    input:focus, textarea:focus {
+        border: 2px solid #47A8BD;
+        outline: none;
+    }
+
+    input:hover, textarea:hover {
+        border: 2px solid #47A8BD;
+    }
+
+    button {        
+        margin-top: .5rem;
+        padding: 0 .2rem .2rem .47rem;
+
+        background: #FAFAFF;;
+
+        font-size: 2rem;
+        outline: none;
+
+        transition: 200ms;
+    }
+
+    button:hover {
+        border: 2px solid #47A8BD;
+    }
+
+/* Reusable classes */
+
+    /* Display */
+
+        .none {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+        
+        .invisible {
+            visibility: hidden;
+        }
+
+        .transparent {
+            opacity: 0;
+        }
+
+        /* Flexbox */
+
+            .start {
+                justify-content: flex-start;
+            }
+
+            .center {
+                justify-content: center;
+            }
+
+            .around {
+                justify-content: space-around;
+            }
+
+            .evenly {
+                justify-content: space-evenly;
+            }
+
+            .alignStart {
+                align-items: flex-start;
+            }
+            
+            .alignCenter {
+                align-items: center;
+            }
+
+            .contentStart {
+                align-content: flex-start;
+            }
+
+            .contentCenter {
+                align-content: center;
+            }
+
+            .wrap {
+                flex-wrap: wrap;
+            }
+
+            .fullRow {
+                flex-basis: 100%;
+            }
+
+            .sixtyRow {
+                flex-basis: 60%;
+            }
+
+    /* Position */
+
+        .absolute {
+            position: absolute;
+        }
+
+        .relative {
+            position: relative;
+        }
+    
+    /* Sizing */
+
+        .half {
+            width: 50%;
+        }
+
+        .full {
+            width: 100%;
+        }
+
+        .fullHeight {
+            height: 100%;
+        }
+
+        .square {
+            width: 30vw;
+            height: 30vw;
+        }
+
+        .portrait {
+            height: 39.5vw;
+            width: 25vw;
+        }
+
+        .fullHeight .portrait {
+            height: 42.5vw;
+            width: 25vw;
+        }
+
+        .landscape {
+            width: 40vw;
+            height: 30vw;
+        }
+
+    /* Margin/Padding/Border */
+
+        .textPadding {
+            padding: 5rem;
+        }
+        
+        .formPadding {
+            padding: 1rem 3rem;
+        }
+
+        .blueBorder {
+            border: 2px solid #A1D1De;
+        }
+
+        .whiteBorder {
+            border: 2px solid #FAFAFF
+        }
+
+    /* Scroll */
+
+        .scroll {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #47A8BD #FAFAFF;
+        }
+
+    /* Background */
+
+        .blue {
+            background: #A1D1De;
+        }
+
+        .ocean {
+            background-image: url(https://images.unsplash.com/photo-1524275804141-5e9f2bc5a71d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+            background-size: cover;
+
+            transition: 1000ms;
+        }
+
+        .ocean:hover {
+            background-position: -.75vw 0;
+        }
+
+    /* Text */
+
+        .centerText {
+            text-align: center;
+        }
+    
+        .whiteText {
+            color: #FAFAFF;
+        }
+
+        .outline {
+            font-weight: 300;
+            letter-spacing: .4rem;
+            text-shadow: -1px -1px 0 #30343F, 1px -1px 0 #30343F, -1px 1px 0 #30343F, 1px 1px 0 #30343F;
+        }
+
+
+/* Media queries */
+
+    /* Smaller laptop */
+
+        @media (max-width: 1050px){    
+            body {
+                font-size: 1rem;
+            }
+            
+            .home a {
+                font-size: 3rem;
+                text-decoration: none;
+            }
+
+            .navMenu a, .navMenu h3 {
+                font-size: 1.5rem;
+            }
+
+            .square {
+                width: 40vw;
+                height: 70vw;
+            }
+
+            .galleryItem {    
+                width: 27vw;
+                height: 27.4vw;
+
+                margin-bottom: 0.7vw;
+
+                transition-duration: 750ms;
+            }
+
+            .galleryItem:nth-of-type(3n-2) {
+                transform-origin: left;
+            }
+
+            .galleryItem:nth-of-type(3n-1) {
+                transform-origin: center;
+            }
+
+            .galleryItem:nth-of-type(3n) {
+                transform-origin: right;
+            }
+
+            .galleryItem:nth-of-type(4n) {
+                margin-top: 0;
+            }
+            
+            .galleryItem:nth-of-type(1) {
+                transform-origin: top left;
+                margin-top: 0.7vw;
+            }
+            
+            .galleryItem:nth-of-type(2) {
+                transform-origin: top;
+                margin-top: 0.7vw;
+            }
+            
+            .galleryItem:nth-of-type(3) {
+                transform-origin: top right;
+                margin-top: 0.7vw;
+            }
+
+            .galleryItem:hover {      
+                transform: scale(1.25);
+            }
+
+            .galleryItem * {
+                transition: 750ms;
+            }
+
+            .galleryItem a {
+                font-size: 1.6rem;
+            }
+
+            h4 {
+                font-size: 1.1rem;
+                font-weight: 400;
+            }
+
+            #formDiv {
+                width: 40vw;
+                height: 70vw;
+            }
+
+            .around {
+                justify-content: space-evenly;
+            }
+
+            .scroll {
+                overflow-y: auto;
+                scrollbar-width: thin;
+                scrollbar-color: #47A8BD #FAFAFF;
+            }
+
+            .scroll::-webkit-scrollbar {
+                width: 7px;
+            }
+            
+            .scroll::-webkit-scrollbar-thumb{
+                background-color: #47A8BD;
+            }
+            
+            .scroll::-webkit-scrollbar-track{
+                background-color: #FAFAFF;
+            }
+
+            #contactList {
+                margin-left: 30vw;
+            }
+
+        }
+
+    /* Tablet */
+
+    /* Mobile */
+
+    

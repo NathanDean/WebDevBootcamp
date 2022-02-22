@@ -7,8 +7,7 @@ const projects = [];
 // Stores items to be added to gallery
 let galleryItems = [];
 
-// Contstuctor for projects
-
+// Constuctor for projects
 function Project(title, link, language, image, lightText){
     this.title = title;
     this.link = link;
@@ -17,8 +16,7 @@ function Project(title, link, language, image, lightText){
     this.lightText = lightText;
 }
 
-// loads sample projects into array
-
+// Loads sample projects into array
 for(i = 0; i <16; i++){
     const project = new Project("Perlin Terrain", "#", "Processing", "images/perlin.JPG", false);
     projects.push(project);
@@ -64,7 +62,7 @@ function createEmptyItem(){
     pushItem(emptyItem);
 }
 
-// Creates and styles gallery items + content
+// Creates and styles gallery items + content (planning to refactor into separate functions)
 function createItems() {
     for(i = projects.length - 1; i >= 0; i--){
         
@@ -96,7 +94,7 @@ function createItems() {
         itemLanguage.classList.add("centerText");
         itemLanguage.textContent = projects[i].language;
 
-        // Adds styles to make text more readable if gallery item has light background
+        // Adds styles to make text more readable if gallery item has dark/multicoloured background
         if(projects[i].lightText === true){
             itemTitle.classList.add("whiteText");
             itemLanguage.classList.add("whiteText")
@@ -162,7 +160,7 @@ function addTransformOrigin() {
     }
 }
 
-// Calls functions to create and style gallery items, then loads them to array
+// Calls functions to create and style gallery items, then loads them to array, before looping over array and appending each item to document
 function loadItems() {
     createItems();
     addTransformOrigin();
@@ -171,7 +169,7 @@ function loadItems() {
     }
 }
 
-// Removes gallery items from page and removes them from array
+// Removes gallery items from document and clears galleryItems array
 function clearItems() {
     for(let item of galleryItems) {
         gallery.removeChild(item);

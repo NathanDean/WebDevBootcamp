@@ -2,101 +2,38 @@
 const gallery = document.querySelector("#gallery");
 
 // Stores info to be added to gallery items
-const projects = [
-    {
-        title: "Perlin Terrain",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Smoking Text",
-        link: "#",
-        language: "CSS",
-        image: "images/smoke.JPG",
-        light: true
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-        {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-    {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    },
-        {
-        title: "Perlin Noise",
-        link: "#",
-        language: "Processing",
-        image: "images/perlin.JPG",
-        light: false
-    }
-];
+const projects = [];
 
 // Stores items to be added to gallery
 let galleryItems = [];
+
+// Contstuctor for projects
+
+function Project(title, link, language, image, lightText){
+    this.title = title;
+    this.link = link;
+    this.language = language;
+    this.image = image;
+    this.lightText = lightText;
+}
+
+// loads sample projects into array
+
+for(i = 0; i <16; i++){
+    const project = new Project("Perlin Terrain", "#", "Processing", "images/perlin.JPG", false);
+    projects.push(project);
+}
 
 // Creates new gallery item
 function createItem() {
     const item = document.createElement("div");    
     return item;
 }
+
+// Set size of gallery items
+function gallerySquare(item){
+    item.classList.add("gallerySquare");
+};
 
 // Set transform origin of gallery items
 function bottomLeft(item){
@@ -108,9 +45,8 @@ function bottom(item){
 function bottomRight(item){
     item.classList.add("bottomRight");
 };
-function gallerySquare(item){
-    item.classList.add("gallerySquare");
-};
+
+// Make filler items invisible
 function invisible(item){
     item.classList.add("invisible");
 };
@@ -161,7 +97,7 @@ function createItems() {
         itemLanguage.textContent = projects[i].language;
 
         // Adds styles to make text more readable if gallery item has light background
-        if(projects[i].light === true){
+        if(projects[i].lightText === true){
             itemTitle.classList.add("whiteText");
             itemLanguage.classList.add("whiteText")
             itemTitle.classList.add("outline");

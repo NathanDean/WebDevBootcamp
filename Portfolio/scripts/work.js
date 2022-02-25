@@ -8,15 +8,23 @@ const projects = [];
 let galleryItems = [];
 
 // Constuctor for projects
-function Project(title, link, language, image, lightText){
-    this.title = title;
-    this.link = link;
-    this.language = language;
-    this.image = image;
-    this.lightText = lightText;
+class Project {
+    title;
+    link;
+    language;
+    image;
+    lightText;
+
+    constructor(title, link, language, image, lightText){
+            this.title = title;
+            this.link = link;
+            this.language = language;
+            this.image = image;
+            this.lightText = lightText;
+        }
 }
 
-// Loads sample projects into array
+// Loads sample projects into array (planning to connect to database in future)
 for(i = 0; i <16; i++){
     const project = new Project("Perlin Terrain", "#", "Processing", "images/perlin.JPG", false);
     projects.push(project);

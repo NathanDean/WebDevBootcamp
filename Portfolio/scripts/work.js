@@ -160,7 +160,7 @@ function addTransformOrigin() {
             createEmptyItem()
         }
         else {
-            galleryItems[galleryItems.length - 1].bottomLeft();
+            bottomLeft(galleryItems[galleryItems.length - 1]);
             for(i = 0; i < 2; i++){
                 createEmptyItem();
             }

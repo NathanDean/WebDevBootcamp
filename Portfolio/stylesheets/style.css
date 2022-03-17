@@ -538,10 +538,12 @@ Media queries */
                 height: 70vw;
             }
 
-            .galleryItem {    
+            .gallerySquare {
                 width: 27vw;
                 height: 27.4vw;
+            }
 
+            .galleryItem {
                 margin-bottom: 0.7vw;
 
                 transition-duration: 750ms;
@@ -559,7 +561,7 @@ Media queries */
                 transform-origin: right;
             }
 
-            .galleryItem:nth-of-type(4n) {
+            .gallerySquare.galleryItem:nth-of-type(4n) {
                 margin-top: 0;
             }
             

@@ -1,40 +1,19 @@
 /* Contents */
 
-/* Import font
-
-Universal reset
-
-Whole page
-
-Home
-
-    Home menu
-
-Nav
-
-Gallery
-
-Contact
-
-Reusable classes
-
-    Diplay and Flexbox
-
-    Sizing
-
-    Margin, Padding and Border
-
-    Background
-
-    Text
-
-Media queries */
 
 
 /* Import font */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400&display=swap');
 
+/* Define variables */
+
+:root {
+    --offWhite: #FAFAFF;
+    --lightBlue: #A1D1De;
+    --darkBlue: #47A8BD;
+    --darkGrey: #30343F;
+}
 
 /* Universal reset */
 
@@ -51,7 +30,7 @@ Media queries */
         width: 100vw;
         height: 100vh;
 
-        background: #FAFAFF;
+        background: var(--offWhite);
     }
 
     h4 {
@@ -63,7 +42,7 @@ Media queries */
     }
 
     body, a, h1, h3, h4, label, input, textarea, button {
-        color: #30343F;
+        color: var(--darkGrey);
     }
 
     body, a, h1, h3, h4, label, button {
@@ -126,21 +105,21 @@ Media queries */
     }
 
     nav div span {    
-        border-bottom: 0px solid #47A8BD;
+        border-bottom: 0px solid var(--lightBlue);
 
         transition: 180ms;
     }
 
     nav div span:hover {
-        border-bottom: 6px solid #A1D1De;
+        border-bottom: 6px solid var(--lightBlue);
     }
 
     #currentPage {
-        border-bottom: 6px solid #47A8BD;
+        border-bottom: 6px solid var(--darkBlue);
     }
 
     #currentPage:hover {
-        border-bottom: 0px solid #47A8BD;
+        border-bottom: 0px solid var(--darkBlue);
     }
 
 /* Gallery */
@@ -157,11 +136,11 @@ Media queries */
     }
 
     .gallery::-webkit-scrollbar-thumb{
-        background-color: #47A8BD;
+        background-color: var(--darkBlue);
     }
 
     .gallery::-webkit-scrollbar-track{
-        background-color: #FAFAFF;
+        background-color: var(--offWhite);
     }
 
     /* Gallery items */
@@ -320,19 +299,19 @@ Media queries */
     }
 
     input:focus, textarea:focus {
-        border: 2px solid #47A8BD;
+        border: 2px solid var(--darkBlue);
         outline: none;
     }
 
     input:hover, textarea:hover {
-        border: 2px solid #47A8BD;
+        border: 2px solid var(--darkBlue);
     }
 
     button {        
         margin-top: .5rem;
         padding: 0 .2rem .2rem .47rem;
 
-        background: #FAFAFF;;
+        background: var(--offWhite);
 
         font-size: 2rem;
         outline: none;
@@ -341,7 +320,7 @@ Media queries */
     }
 
     button:hover {
-        border: 2px solid #47A8BD;
+        border: 2px solid var(--darkBlue);
     }
 
 /* Reusable classes */
@@ -465,11 +444,11 @@ Media queries */
         }
 
         .blueBorder {
-            border: 2px solid #A1D1De;
+            border: 2px solid var(--lightBlue);
         }
 
         .whiteBorder {
-            border: 2px solid #FAFAFF
+            border: 2px solid var(--offWhite);
         }
 
     /* Scroll */
@@ -478,13 +457,13 @@ Media queries */
             overflow-y: scroll;
             overflow-x: hidden;
             scrollbar-width: thin;
-            scrollbar-color: #47A8BD #FAFAFF;
+            scrollbar-color: var(--darkBlue); var(--offWhite);
         }
 
     /* Background */
 
         .blue {
-            background: #A1D1De;
+            background: var(--lightBlue);
         }
 
         .ocean {
@@ -505,13 +484,13 @@ Media queries */
         }
     
         .whiteText {
-            color: #FAFAFF;
+            color: var(--offWhite);
         }
 
         .outline {
             font-weight: 300;
             letter-spacing: .4rem;
-            text-shadow: -1px -1px 0 #30343F, 1px -1px 0 #30343F, -1px 1px 0 #30343F, 1px 1px 0 #30343F;
+            text-shadow: -1px -1px 0 var(--darkGrey), 1px -1px 0 var(--darkGrey), -1px 1px 0 var(--darkGrey), 1px 1px 0 var(--darkGrey);
         }
 
 
@@ -609,7 +588,7 @@ Media queries */
             .scroll {
                 overflow-y: auto;
                 scrollbar-width: thin;
-                scrollbar-color: #47A8BD #FAFAFF;
+                scrollbar-color: var(--darkBlue); var(--offWhite);
             }
 
             .scroll::-webkit-scrollbar {
@@ -617,11 +596,11 @@ Media queries */
             }
             
             .scroll::-webkit-scrollbar-thumb{
-                background-color: #47A8BD;
+                background-color: var(--darkBlue);
             }
             
             .scroll::-webkit-scrollbar-track{
-                background-color: #FAFAFF;
+                background-color: var(--offWhite);
             }
 
             #contactList {

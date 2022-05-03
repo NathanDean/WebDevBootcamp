@@ -11,12 +11,12 @@ button.addEventListener("click", function(){
     main.classList.toggle("fade");
 })
 
-if(window.innerWidth < 370){
+if(window.innerWidth < 370 || window.innerHeight < 450){
     header.textContent = "nd";
 }
 
 window.addEventListener("resize", function(){
-    if(window.innerWidth < 370){
+    if(window.innerWidth < 370 || window.innerHeight < 450){
         header.textContent = "nd";
     }
     else{

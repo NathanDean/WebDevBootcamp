@@ -1,34 +1,12 @@
+// Imports array of projects to be added to gallery
+import projects from "./projects.js";
+
 // Selects gallery
 const gallery = document.querySelector("#gallery");
 
-// Stores info to be added to gallery items
-const projects = [];
 
 // Stores items to be added to gallery
 let galleryItems = [];
-
-// Constuctor for projects
-class Project {
-    title;
-    link;
-    language;
-    image;
-    lightText;
-
-    constructor(title, link, language, image, lightText){
-            this.title = title;
-            this.link = link;
-            this.language = language;
-            this.image = image;
-            this.lightText = lightText;
-        }
-}
-
-// Loads sample projects into array (planning to connect to database in future)
-for(i = 0; i <16; i++){
-    const project = new Project("Perlin Terrain", "#", "Processing", "images/perlin.JPG", false);
-    projects.push(project);
-}
 
 // Creates new gallery item
 function createItem() {
@@ -72,13 +50,13 @@ function createEmptyItem(){
 
 // Creates and styles gallery items + content (planning to refactor into separate functions)
 function createItems() {
-    for(i = projects.length - 1; i >= 0; i--){
+    for(let i = projects.length - 1; i >= 0; i--){
         
         // Creates + styles div
         const galleryItem = createItem();
 
         gallerySquare(galleryItem);
-        galleryItem.classList.add("galleryItem");
+        galleryItem.classList.add("galleryContentItem");
         galleryItem.classList.add("flex");
         galleryItem.classList.add("center");
         galleryItem.classList.add("alignCenter");
@@ -88,12 +66,11 @@ function createItems() {
         galleryItems.push(galleryItem);
         
         // Creates + styles gallery item title
-        const itemTitle = document.createElement("a");
+        const itemTitle = document.createElement("h2");
         itemTitle.classList.add("fullRow");
         itemTitle.classList.add("transparent");
         itemTitle.classList.add("centerText");
         itemTitle.textContent = projects[i].title;
-        itemTitle.setAttribute("href", projects[i].link);
 
         // Creates + styles language subheading
         const itemLanguage = document.createElement("h4");
@@ -101,6 +78,21 @@ function createItems() {
         itemLanguage.classList.add("transparent");
         itemLanguage.classList.add("centerText");
         itemLanguage.textContent = projects[i].language;
+
+        // Creates + styles Github link
+        const itemGithubLink = document.createElement("a");
+        itemGithubLink.setAttribute("href", projects[i].github);
+
+        // Creates + styles Codepen link
+        const itemCodepenLink = document.createElement("a");
+        itemCodepenLink.setAttribute("href", projects[i].Codepen);
+
+        // Creates Github/Codepen div
+        const containerDiv = document.createElement("div");
+        containerDiv.classList.add("fullRow");
+        containerDiv.classList.add("transparent");
+        containerDiv.classList.add("centerText");
+        containerDiv.innerHTML = `<a href = ${itemGithubLink} >Github</a> | <a href = ${itemCodepenLink} >Codepen</a>`
 
         // Adds styles to make text more readable if gallery item has dark/multicoloured background
         if(projects[i].lightText === true){
@@ -113,13 +105,14 @@ function createItems() {
         // Appends title + language to gallery items
         galleryItem.append(itemTitle);
         galleryItem.append(itemLanguage);
+        galleryItem.append(containerDiv);
     }
 }
 
 // Checks number of items in bottom row of gallery and sets transform-origin according to their position, then fills remaining space with empty items
 function addTransformOrigin() {
     const width = window.innerWidth;
-    if(width > 1050){
+    if(width > 1400){
         if(galleryItems.length % 4 === 0){
             bottomLeft(galleryItems[galleryItems.length - 4]);
             for(i = 3; i > 1; i--){
@@ -143,12 +136,12 @@ function addTransformOrigin() {
         }
         else {
             bottomLeft(galleryItems[galleryItems.length - 1]);
-            for(i = 0; i < 3; i++){
+            for(let i = 0; i < 3; i++){
                 createEmptyItem();
             }
         }
     }
-    else {
+    else if (width > 1000){
         if(galleryItems.length % 3 === 0){
             bottomLeft(galleryItems[galleryItems.length - 3]);
             bottom(galleryItems[galleryItems.length - 2]);
@@ -164,6 +157,11 @@ function addTransformOrigin() {
             for(i = 0; i < 2; i++){
                 createEmptyItem();
             }
+        }
+    }
+    else if (width > 800){
+        if(galleryItems.length % 2 === 1){
+            createEmptyItem();
         }
     }
 }

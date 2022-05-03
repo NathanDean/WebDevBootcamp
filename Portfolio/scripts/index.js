@@ -1,6 +1,8 @@
 // Selects title/menu div and explore h3
-const title = document.querySelector("#title");
-const menu = document.querySelector("#menu");
+let width = window.innerWidth;
+const body = document.querySelector("body");
+const title = document.querySelector("#indexTitle");
+const menu = document.querySelector("#indexMenu");
 const explore = document.querySelector("#explore");
 const goHome = document.querySelector("#goHome");
 
@@ -76,3 +78,21 @@ goHome.addEventListener("click", function(){
         }, transitionTime);
     }
 })
+
+function redirect(){
+    location.href = "about.html"
+}
+
+if(width < 1200){
+    body.addEventListener("click", redirect);
+}
+
+window.addEventListener("resize", function(){
+    width = window.innerWidth;
+    if(width < 1200){
+        body.addEventListener("click", redirect);
+    }
+    else{
+        body.removeEventListener("click", redirect);
+    }
+});
